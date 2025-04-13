@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **created_at** | **datetime** | Timestamp when the object has been created. | [optional] [readonly] 
 **credential_config** | [**CredentialConfig**](CredentialConfig.md) | Credential configuration. Ex.: &#39;{    \&quot;access_identifier\&quot;: \&quot;arn:aws:iam::1234:role/access_for_discovery\&quot;,    \&quot;region\&quot;: \&quot;us-east-1\&quot;,    \&quot;enclave\&quot;: \&quot;commercial/gov\&quot;  }&#39;. | [optional] 
 **deleted_at** | **datetime** | Timestamp when the object has been deleted. | [optional] [readonly] 
-**id** | **str** | Auto-generated unique source config ID. Format BloxID. | [optional] 
+**id** | **str** | Auto-generated unique source config ID. Format BloxID. | [optional] [readonly] 
 **restricted_to_accounts** | **List[str]** | Provider account IDs such as accountID/ SubscriptionID to be restricted for a given source_config. | [optional] 
 **updated_at** | **datetime** | Timestamp when the object has been updated. | [optional] [readonly] 
 
