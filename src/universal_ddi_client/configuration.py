@@ -87,7 +87,7 @@ conf = ipam.Configuration(
         self.logger_file = None
         """Debug file location
         """
-        self.debug = False or parse_env_bool(os.getenv("IB_LOG_LEVEL"))
+        self.debug = parse_env_bool(os.getenv("IB_LOG_LEVEL"))
         """Debug switch
         """
 
