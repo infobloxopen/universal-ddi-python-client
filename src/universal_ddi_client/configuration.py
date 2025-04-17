@@ -87,7 +87,7 @@ conf = ipam.Configuration(
         self.logger_file = None
         """Debug file location
         """
-        self.debug = parse_env_bool(os.getenv("IB_LOG_LEVEL"))
+        self.debug = is_log_level_debug(os.getenv("IB_LOG_LEVEL"))
         """Debug switch
         """
 
@@ -352,7 +352,7 @@ conf = ipam.Configuration(
         """
         self.__default_tags = value
 
-def parse_env_bool(debug):
+def is_log_level_debug(debug):
     """Get the environment variable.
 
     :param debug: The environment variable.
