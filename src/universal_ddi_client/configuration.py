@@ -356,18 +356,6 @@ def parse_env_bool(debug):
     """Get the environment variable.
 
     :param debug: The environment variable.
-    :return: The environment variable value.
+    :return: True if the variable is "DEBUG" or "debug", otherwise False.
     """
-    if debug is None:
-        return False
-    elif isinstance(debug, bool):
-        return debug
-    elif isinstance(debug, str):
-        if debug.lower() == "true":
-            return True
-        elif debug.lower() == "false":
-            return False
-        else:
-            raise ValueError("Invalid value for environment variable")
-    else:
-        raise ValueError("Invalid type for environment variable")
+    return isinstance(debug, str) and debug.lower() == "debug"
