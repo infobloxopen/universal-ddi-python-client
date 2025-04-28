@@ -128,6 +128,20 @@ config = Configuration(
 )
 ```
 
+### Debugging
+To enable debugging, you can set the `debug` parameter to `True` when creating an instance of Configuration. For example:
+
+```python
+from universal_ddi_client import Configuration
+
+config = Configuration(
+    debug = True,
+)
+```
+This will enable debugging for the client and log all requests and responses to the console.
+
+Alternatively, You can also enable debugging using the environment variable `IB_LOG_LEVEL` by setting it to `DEBUG`.
+
 ## Support 
 
 For support and inquiries, contact Infoblox Support or refer to the official [Universal DDI documentation](https://csp.infoblox.com/apidoc).
