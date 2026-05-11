@@ -22,6 +22,7 @@ The following Infoblox APIs are supported:
 - [Keys](https://github.com/infobloxopen/universal-ddi-python-client/blob/main/src/keys/README.md)
 - [Cloud Discovery Providers](https://github.com/infobloxopen/universal-ddi-python-client/blob/main/src/cloud_discovery/README.md)
 - [IPAM Federation](https://github.com/infobloxopen/universal-ddi-python-client/blob/main/src/ipam_federation/README.md)
+- [DTC](https://github.com/infobloxopen/universal-ddi-python-client/blob/main/src/dtc/README.md)
 
 ## Installation
 
