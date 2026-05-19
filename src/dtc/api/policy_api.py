@@ -47,6 +47,11 @@ class PolicyApi:
     def create(
         self,
         body: Policy,
+        inherit: Annotated[
+            Optional[StrictStr],
+            Field(description=
+                  "This parameter is used for getting inheritance_sources."
+                  )] = None,
         _request_timeout: Union[None, Annotated[StrictFloat,
                                                 Field(gt=0)],
                                 Tuple[Annotated[StrictFloat,
@@ -64,6 +69,8 @@ class PolicyApi:
 
         :param body: (required)
         :type body: Policy
+        :param inherit: This parameter is used for getting inheritance_sources.
+        :type inherit: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -87,6 +94,7 @@ class PolicyApi:
         """ # noqa: E501
 
         _param = self._create_serialize(body=body,
+                                        inherit=inherit,
                                         _request_auth=_request_auth,
                                         _content_type=_content_type,
                                         _headers=_headers,
@@ -108,6 +116,11 @@ class PolicyApi:
     def create_with_http_info(
         self,
         body: Policy,
+        inherit: Annotated[
+            Optional[StrictStr],
+            Field(description=
+                  "This parameter is used for getting inheritance_sources."
+                  )] = None,
         _request_timeout: Union[None, Annotated[StrictFloat,
                                                 Field(gt=0)],
                                 Tuple[Annotated[StrictFloat,
@@ -125,6 +138,8 @@ class PolicyApi:
 
         :param body: (required)
         :type body: Policy
+        :param inherit: This parameter is used for getting inheritance_sources.
+        :type inherit: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -148,6 +163,7 @@ class PolicyApi:
         """ # noqa: E501
 
         _param = self._create_serialize(body=body,
+                                        inherit=inherit,
                                         _request_auth=_request_auth,
                                         _content_type=_content_type,
                                         _headers=_headers,
@@ -169,6 +185,11 @@ class PolicyApi:
     def create_without_preload_content(
         self,
         body: Policy,
+        inherit: Annotated[
+            Optional[StrictStr],
+            Field(description=
+                  "This parameter is used for getting inheritance_sources."
+                  )] = None,
         _request_timeout: Union[None, Annotated[StrictFloat,
                                                 Field(gt=0)],
                                 Tuple[Annotated[StrictFloat,
@@ -186,6 +207,8 @@ class PolicyApi:
 
         :param body: (required)
         :type body: Policy
+        :param inherit: This parameter is used for getting inheritance_sources.
+        :type inherit: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -209,6 +232,7 @@ class PolicyApi:
         """ # noqa: E501
 
         _param = self._create_serialize(body=body,
+                                        inherit=inherit,
                                         _request_auth=_request_auth,
                                         _content_type=_content_type,
                                         _headers=_headers,
@@ -224,6 +248,7 @@ class PolicyApi:
     def _create_serialize(
         self,
         body,
+        inherit,
         _request_auth,
         _content_type,
         _headers,
@@ -243,6 +268,10 @@ class PolicyApi:
 
         # process the path parameters
         # process the query parameters
+        if inherit is not None:
+
+            _query_params.append(('_inherit', inherit))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -561,6 +590,11 @@ class PolicyApi:
             Optional[StrictStr],
             Field(description="This parameter is used for sorting by tags."
                   )] = None,
+        inherit: Annotated[
+            Optional[StrictStr],
+            Field(description=
+                  "This parameter is used for getting inheritance_sources."
+                  )] = None,
         _request_timeout: Union[None, Annotated[StrictFloat,
                                                 Field(gt=0)],
                                 Tuple[Annotated[StrictFloat,
@@ -592,6 +626,8 @@ class PolicyApi:
         :type tfilter: str
         :param torder_by: This parameter is used for sorting by tags.
         :type torder_by: str
+        :param inherit: This parameter is used for getting inheritance_sources.
+        :type inherit: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -622,6 +658,7 @@ class PolicyApi:
                                       order_by=order_by,
                                       tfilter=tfilter,
                                       torder_by=torder_by,
+                                      inherit=inherit,
                                       _request_auth=_request_auth,
                                       _content_type=_content_type,
                                       _headers=_headers,
@@ -686,6 +723,11 @@ class PolicyApi:
             Optional[StrictStr],
             Field(description="This parameter is used for sorting by tags."
                   )] = None,
+        inherit: Annotated[
+            Optional[StrictStr],
+            Field(description=
+                  "This parameter is used for getting inheritance_sources."
+                  )] = None,
         _request_timeout: Union[None, Annotated[StrictFloat,
                                                 Field(gt=0)],
                                 Tuple[Annotated[StrictFloat,
@@ -717,6 +759,8 @@ class PolicyApi:
         :type tfilter: str
         :param torder_by: This parameter is used for sorting by tags.
         :type torder_by: str
+        :param inherit: This parameter is used for getting inheritance_sources.
+        :type inherit: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -747,6 +791,7 @@ class PolicyApi:
                                       order_by=order_by,
                                       tfilter=tfilter,
                                       torder_by=torder_by,
+                                      inherit=inherit,
                                       _request_auth=_request_auth,
                                       _content_type=_content_type,
                                       _headers=_headers,
@@ -811,6 +856,11 @@ class PolicyApi:
             Optional[StrictStr],
             Field(description="This parameter is used for sorting by tags."
                   )] = None,
+        inherit: Annotated[
+            Optional[StrictStr],
+            Field(description=
+                  "This parameter is used for getting inheritance_sources."
+                  )] = None,
         _request_timeout: Union[None, Annotated[StrictFloat,
                                                 Field(gt=0)],
                                 Tuple[Annotated[StrictFloat,
@@ -842,6 +892,8 @@ class PolicyApi:
         :type tfilter: str
         :param torder_by: This parameter is used for sorting by tags.
         :type torder_by: str
+        :param inherit: This parameter is used for getting inheritance_sources.
+        :type inherit: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -872,6 +924,7 @@ class PolicyApi:
                                       order_by=order_by,
                                       tfilter=tfilter,
                                       torder_by=torder_by,
+                                      inherit=inherit,
                                       _request_auth=_request_auth,
                                       _content_type=_content_type,
                                       _headers=_headers,
@@ -894,6 +947,7 @@ class PolicyApi:
         order_by,
         tfilter,
         torder_by,
+        inherit,
         _request_auth,
         _content_type,
         _headers,
@@ -945,6 +999,10 @@ class PolicyApi:
 
             _query_params.append(('_torder_by', torder_by))
 
+        if inherit is not None:
+
+            _query_params.append(('_inherit', inherit))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -984,6 +1042,11 @@ class PolicyApi:
                 description=
                 "  A collection of response resources can be transformed by specifying a set of JSON tags to be returned. For a “flat” resource, the tag name is straightforward. If field selection is allowed on non-flat hierarchical resources, the service should implement a qualified naming scheme such as dot-qualification to reference data down the hierarchy. If a resource does not have the specified tag, the tag does not appear in the output resource.  Specify this parameter as a comma-separated list of JSON tag names.        "
             )] = None,
+        inherit: Annotated[
+            Optional[StrictStr],
+            Field(description=
+                  "This parameter is used for getting inheritance_sources."
+                  )] = None,
         _request_timeout: Union[None, Annotated[StrictFloat,
                                                 Field(gt=0)],
                                 Tuple[Annotated[StrictFloat,
@@ -1003,6 +1066,8 @@ class PolicyApi:
         :type id: str
         :param fields:   A collection of response resources can be transformed by specifying a set of JSON tags to be returned. For a “flat” resource, the tag name is straightforward. If field selection is allowed on non-flat hierarchical resources, the service should implement a qualified naming scheme such as dot-qualification to reference data down the hierarchy. If a resource does not have the specified tag, the tag does not appear in the output resource.  Specify this parameter as a comma-separated list of JSON tag names.        
         :type fields: str
+        :param inherit: This parameter is used for getting inheritance_sources.
+        :type inherit: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1027,6 +1092,7 @@ class PolicyApi:
 
         _param = self._read_serialize(id=id,
                                       fields=fields,
+                                      inherit=inherit,
                                       _request_auth=_request_auth,
                                       _content_type=_content_type,
                                       _headers=_headers,
@@ -1057,6 +1123,11 @@ class PolicyApi:
                 description=
                 "  A collection of response resources can be transformed by specifying a set of JSON tags to be returned. For a “flat” resource, the tag name is straightforward. If field selection is allowed on non-flat hierarchical resources, the service should implement a qualified naming scheme such as dot-qualification to reference data down the hierarchy. If a resource does not have the specified tag, the tag does not appear in the output resource.  Specify this parameter as a comma-separated list of JSON tag names.        "
             )] = None,
+        inherit: Annotated[
+            Optional[StrictStr],
+            Field(description=
+                  "This parameter is used for getting inheritance_sources."
+                  )] = None,
         _request_timeout: Union[None, Annotated[StrictFloat,
                                                 Field(gt=0)],
                                 Tuple[Annotated[StrictFloat,
@@ -1076,6 +1147,8 @@ class PolicyApi:
         :type id: str
         :param fields:   A collection of response resources can be transformed by specifying a set of JSON tags to be returned. For a “flat” resource, the tag name is straightforward. If field selection is allowed on non-flat hierarchical resources, the service should implement a qualified naming scheme such as dot-qualification to reference data down the hierarchy. If a resource does not have the specified tag, the tag does not appear in the output resource.  Specify this parameter as a comma-separated list of JSON tag names.        
         :type fields: str
+        :param inherit: This parameter is used for getting inheritance_sources.
+        :type inherit: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1100,6 +1173,7 @@ class PolicyApi:
 
         _param = self._read_serialize(id=id,
                                       fields=fields,
+                                      inherit=inherit,
                                       _request_auth=_request_auth,
                                       _content_type=_content_type,
                                       _headers=_headers,
@@ -1130,6 +1204,11 @@ class PolicyApi:
                 description=
                 "  A collection of response resources can be transformed by specifying a set of JSON tags to be returned. For a “flat” resource, the tag name is straightforward. If field selection is allowed on non-flat hierarchical resources, the service should implement a qualified naming scheme such as dot-qualification to reference data down the hierarchy. If a resource does not have the specified tag, the tag does not appear in the output resource.  Specify this parameter as a comma-separated list of JSON tag names.        "
             )] = None,
+        inherit: Annotated[
+            Optional[StrictStr],
+            Field(description=
+                  "This parameter is used for getting inheritance_sources."
+                  )] = None,
         _request_timeout: Union[None, Annotated[StrictFloat,
                                                 Field(gt=0)],
                                 Tuple[Annotated[StrictFloat,
@@ -1149,6 +1228,8 @@ class PolicyApi:
         :type id: str
         :param fields:   A collection of response resources can be transformed by specifying a set of JSON tags to be returned. For a “flat” resource, the tag name is straightforward. If field selection is allowed on non-flat hierarchical resources, the service should implement a qualified naming scheme such as dot-qualification to reference data down the hierarchy. If a resource does not have the specified tag, the tag does not appear in the output resource.  Specify this parameter as a comma-separated list of JSON tag names.        
         :type fields: str
+        :param inherit: This parameter is used for getting inheritance_sources.
+        :type inherit: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1173,6 +1254,7 @@ class PolicyApi:
 
         _param = self._read_serialize(id=id,
                                       fields=fields,
+                                      inherit=inherit,
                                       _request_auth=_request_auth,
                                       _content_type=_content_type,
                                       _headers=_headers,
@@ -1189,6 +1271,7 @@ class PolicyApi:
         self,
         id,
         fields,
+        inherit,
         _request_auth,
         _content_type,
         _headers,
@@ -1213,6 +1296,10 @@ class PolicyApi:
         if fields is not None:
 
             _query_params.append(('_fields', fields))
+
+        if inherit is not None:
+
+            _query_params.append(('_inherit', inherit))
 
         # process the header parameters
         # process the form parameters
@@ -1248,6 +1335,11 @@ class PolicyApi:
             Field(description=
                   "An application specific resource identity of a resource")],
         body: Policy,
+        inherit: Annotated[
+            Optional[StrictStr],
+            Field(description=
+                  "This parameter is used for getting inheritance_sources."
+                  )] = None,
         _request_timeout: Union[None, Annotated[StrictFloat,
                                                 Field(gt=0)],
                                 Tuple[Annotated[StrictFloat,
@@ -1267,6 +1359,8 @@ class PolicyApi:
         :type id: str
         :param body: (required)
         :type body: Policy
+        :param inherit: This parameter is used for getting inheritance_sources.
+        :type inherit: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1291,6 +1385,7 @@ class PolicyApi:
 
         _param = self._update_serialize(id=id,
                                         body=body,
+                                        inherit=inherit,
                                         _request_auth=_request_auth,
                                         _content_type=_content_type,
                                         _headers=_headers,
@@ -1316,6 +1411,11 @@ class PolicyApi:
             Field(description=
                   "An application specific resource identity of a resource")],
         body: Policy,
+        inherit: Annotated[
+            Optional[StrictStr],
+            Field(description=
+                  "This parameter is used for getting inheritance_sources."
+                  )] = None,
         _request_timeout: Union[None, Annotated[StrictFloat,
                                                 Field(gt=0)],
                                 Tuple[Annotated[StrictFloat,
@@ -1335,6 +1435,8 @@ class PolicyApi:
         :type id: str
         :param body: (required)
         :type body: Policy
+        :param inherit: This parameter is used for getting inheritance_sources.
+        :type inherit: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1359,6 +1461,7 @@ class PolicyApi:
 
         _param = self._update_serialize(id=id,
                                         body=body,
+                                        inherit=inherit,
                                         _request_auth=_request_auth,
                                         _content_type=_content_type,
                                         _headers=_headers,
@@ -1384,6 +1487,11 @@ class PolicyApi:
             Field(description=
                   "An application specific resource identity of a resource")],
         body: Policy,
+        inherit: Annotated[
+            Optional[StrictStr],
+            Field(description=
+                  "This parameter is used for getting inheritance_sources."
+                  )] = None,
         _request_timeout: Union[None, Annotated[StrictFloat,
                                                 Field(gt=0)],
                                 Tuple[Annotated[StrictFloat,
@@ -1403,6 +1511,8 @@ class PolicyApi:
         :type id: str
         :param body: (required)
         :type body: Policy
+        :param inherit: This parameter is used for getting inheritance_sources.
+        :type inherit: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1427,6 +1537,7 @@ class PolicyApi:
 
         _param = self._update_serialize(id=id,
                                         body=body,
+                                        inherit=inherit,
                                         _request_auth=_request_auth,
                                         _content_type=_content_type,
                                         _headers=_headers,
@@ -1443,6 +1554,7 @@ class PolicyApi:
         self,
         id,
         body,
+        inherit,
         _request_auth,
         _content_type,
         _headers,
@@ -1464,6 +1576,10 @@ class PolicyApi:
         if id is not None:
             _path_params['id'] = self.api_client.path_param_value('id', id)
         # process the query parameters
+        if inherit is not None:
+
+            _query_params.append(('_inherit', inherit))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter

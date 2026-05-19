@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **create**
-> CreatePolicyResponse create(body)
+> CreatePolicyResponse create(body, inherit=inherit)
 
 Create the Policy object.
 
@@ -65,6 +65,7 @@ with ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**Policy**](Policy.md)|  | 
+ **inherit** | **str**| This parameter is used for getting inheritance_sources. | [optional] 
 
 ### Return type
 
@@ -162,7 +163,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list**
-> ListPolicyResponse list(fields=fields, filter=filter, offset=offset, limit=limit, page_token=page_token, order_by=order_by, tfilter=tfilter, torder_by=torder_by)
+> ListPolicyResponse list(fields=fields, filter=filter, offset=offset, limit=limit, page_token=page_token, order_by=order_by, tfilter=tfilter, torder_by=torder_by, inherit=inherit)
 
 Retrieve Policy objects.
 
@@ -221,6 +222,7 @@ Name | Type | Description  | Notes
  **order_by** | **str**|   A collection of response resources can be sorted by their JSON tags. For a &#39;flat&#39; resource, the tag name is straightforward. If sorting is allowed on non-flat hierarchical resources, the service should implement a qualified naming scheme such as dot-qualification to reference data down the hierarchy. If a resource does not have the specified tag, its value is assumed to be null.)  Specify this parameter as a comma-separated list of JSON tag names. The sort direction can be specified by a suffix separated by whitespace before the tag name. The suffix &#39;asc&#39; sorts the data in ascending order. The suffix &#39;desc&#39; sorts the data in descending order. If no suffix is specified the data is sorted in ascending order.         | [optional] 
  **tfilter** | **str**| This parameter is used for filtering by tags. | [optional] 
  **torder_by** | **str**| This parameter is used for sorting by tags. | [optional] 
+ **inherit** | **str**| This parameter is used for getting inheritance_sources. | [optional] 
 
 ### Return type
 
@@ -244,7 +246,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read**
-> ReadPolicyResponse read(id, fields=fields)
+> ReadPolicyResponse read(id, fields=fields, inherit=inherit)
 
 Retrieve the Policy object.
 
@@ -298,6 +300,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| An application specific resource identity of a resource | 
  **fields** | **str**|   A collection of response resources can be transformed by specifying a set of JSON tags to be returned. For a “flat” resource, the tag name is straightforward. If field selection is allowed on non-flat hierarchical resources, the service should implement a qualified naming scheme such as dot-qualification to reference data down the hierarchy. If a resource does not have the specified tag, the tag does not appear in the output resource.  Specify this parameter as a comma-separated list of JSON tag names.         | [optional] 
+ **inherit** | **str**| This parameter is used for getting inheritance_sources. | [optional] 
 
 ### Return type
 
@@ -321,7 +324,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update**
-> UpdatePolicyResponse update(id, body)
+> UpdatePolicyResponse update(id, body, inherit=inherit)
 
 Update the Policy object.
 
@@ -376,6 +379,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| An application specific resource identity of a resource | 
  **body** | [**Policy**](Policy.md)|  | 
+ **inherit** | **str**| This parameter is used for getting inheritance_sources. | [optional] 
 
 ### Return type
 
