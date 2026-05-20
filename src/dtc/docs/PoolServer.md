@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | Display name of __Server__. | [optional] [readonly] 
 **server_id** | **str** | The resource identifier. | 
-**weight** | **int** | Weight of __Server__ to be used for load balancing. Unsigned integer, min 1; max 65535. | 
+**weight** | **int** | Weight of __Server__ to be used for load balancing. Unsigned integer, min 1; max 65535. | [optional] 
 
 ## Example
 
