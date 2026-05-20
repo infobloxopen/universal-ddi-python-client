@@ -49,9 +49,10 @@ class PoolApi:
         body: Pool,
         inherit: Annotated[
             Optional[StrictStr],
-            Field(description=
-                  "This parameter is used for getting inheritance_sources."
-                  )] = None,
+            Field(
+                description=
+                "This parameter is used for getting inheritance_sources.  Allowed values: * _none_, * _partial_, * _full_.  Defaults to _none"
+            )] = None,
         _request_timeout: Union[None, Annotated[StrictFloat,
                                                 Field(gt=0)],
                                 Tuple[Annotated[StrictFloat,
@@ -69,7 +70,7 @@ class PoolApi:
 
         :param body: (required)
         :type body: Pool
-        :param inherit: This parameter is used for getting inheritance_sources.
+        :param inherit: This parameter is used for getting inheritance_sources.  Allowed values: * _none_, * _partial_, * _full_.  Defaults to _none
         :type inherit: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -118,9 +119,10 @@ class PoolApi:
         body: Pool,
         inherit: Annotated[
             Optional[StrictStr],
-            Field(description=
-                  "This parameter is used for getting inheritance_sources."
-                  )] = None,
+            Field(
+                description=
+                "This parameter is used for getting inheritance_sources.  Allowed values: * _none_, * _partial_, * _full_.  Defaults to _none"
+            )] = None,
         _request_timeout: Union[None, Annotated[StrictFloat,
                                                 Field(gt=0)],
                                 Tuple[Annotated[StrictFloat,
@@ -138,7 +140,7 @@ class PoolApi:
 
         :param body: (required)
         :type body: Pool
-        :param inherit: This parameter is used for getting inheritance_sources.
+        :param inherit: This parameter is used for getting inheritance_sources.  Allowed values: * _none_, * _partial_, * _full_.  Defaults to _none
         :type inherit: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -187,9 +189,10 @@ class PoolApi:
         body: Pool,
         inherit: Annotated[
             Optional[StrictStr],
-            Field(description=
-                  "This parameter is used for getting inheritance_sources."
-                  )] = None,
+            Field(
+                description=
+                "This parameter is used for getting inheritance_sources.  Allowed values: * _none_, * _partial_, * _full_.  Defaults to _none"
+            )] = None,
         _request_timeout: Union[None, Annotated[StrictFloat,
                                                 Field(gt=0)],
                                 Tuple[Annotated[StrictFloat,
@@ -207,7 +210,7 @@ class PoolApi:
 
         :param body: (required)
         :type body: Pool
-        :param inherit: This parameter is used for getting inheritance_sources.
+        :param inherit: This parameter is used for getting inheritance_sources.  Allowed values: * _none_, * _partial_, * _full_.  Defaults to _none
         :type inherit: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -592,9 +595,10 @@ class PoolApi:
                   )] = None,
         inherit: Annotated[
             Optional[StrictStr],
-            Field(description=
-                  "This parameter is used for getting inheritance_sources."
-                  )] = None,
+            Field(
+                description=
+                "This parameter is used for getting inheritance_sources.  Allowed values: * _none_, * _partial_, * _full_.  Defaults to _none"
+            )] = None,
         _request_timeout: Union[None, Annotated[StrictFloat,
                                                 Field(gt=0)],
                                 Tuple[Annotated[StrictFloat,
@@ -626,7 +630,7 @@ class PoolApi:
         :type tfilter: str
         :param torder_by: This parameter is used for sorting by tags.
         :type torder_by: str
-        :param inherit: This parameter is used for getting inheritance_sources.
+        :param inherit: This parameter is used for getting inheritance_sources.  Allowed values: * _none_, * _partial_, * _full_.  Defaults to _none
         :type inherit: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -725,9 +729,10 @@ class PoolApi:
                   )] = None,
         inherit: Annotated[
             Optional[StrictStr],
-            Field(description=
-                  "This parameter is used for getting inheritance_sources."
-                  )] = None,
+            Field(
+                description=
+                "This parameter is used for getting inheritance_sources.  Allowed values: * _none_, * _partial_, * _full_.  Defaults to _none"
+            )] = None,
         _request_timeout: Union[None, Annotated[StrictFloat,
                                                 Field(gt=0)],
                                 Tuple[Annotated[StrictFloat,
@@ -759,7 +764,7 @@ class PoolApi:
         :type tfilter: str
         :param torder_by: This parameter is used for sorting by tags.
         :type torder_by: str
-        :param inherit: This parameter is used for getting inheritance_sources.
+        :param inherit: This parameter is used for getting inheritance_sources.  Allowed values: * _none_, * _partial_, * _full_.  Defaults to _none
         :type inherit: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -858,9 +863,10 @@ class PoolApi:
                   )] = None,
         inherit: Annotated[
             Optional[StrictStr],
-            Field(description=
-                  "This parameter is used for getting inheritance_sources."
-                  )] = None,
+            Field(
+                description=
+                "This parameter is used for getting inheritance_sources.  Allowed values: * _none_, * _partial_, * _full_.  Defaults to _none"
+            )] = None,
         _request_timeout: Union[None, Annotated[StrictFloat,
                                                 Field(gt=0)],
                                 Tuple[Annotated[StrictFloat,
@@ -892,7 +898,7 @@ class PoolApi:
         :type tfilter: str
         :param torder_by: This parameter is used for sorting by tags.
         :type torder_by: str
-        :param inherit: This parameter is used for getting inheritance_sources.
+        :param inherit: This parameter is used for getting inheritance_sources.  Allowed values: * _none_, * _partial_, * _full_.  Defaults to _none
         :type inherit: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1044,9 +1050,10 @@ class PoolApi:
             )] = None,
         inherit: Annotated[
             Optional[StrictStr],
-            Field(description=
-                  "This parameter is used for getting inheritance_sources."
-                  )] = None,
+            Field(
+                description=
+                "This parameter is used for getting inheritance_sources.  Allowed values: * _none_, * _partial_, * _full_.  Defaults to _none"
+            )] = None,
         _request_timeout: Union[None, Annotated[StrictFloat,
                                                 Field(gt=0)],
                                 Tuple[Annotated[StrictFloat,
@@ -1066,7 +1073,7 @@ class PoolApi:
         :type id: str
         :param fields:   A collection of response resources can be transformed by specifying a set of JSON tags to be returned. For a “flat” resource, the tag name is straightforward. If field selection is allowed on non-flat hierarchical resources, the service should implement a qualified naming scheme such as dot-qualification to reference data down the hierarchy. If a resource does not have the specified tag, the tag does not appear in the output resource.  Specify this parameter as a comma-separated list of JSON tag names.        
         :type fields: str
-        :param inherit: This parameter is used for getting inheritance_sources.
+        :param inherit: This parameter is used for getting inheritance_sources.  Allowed values: * _none_, * _partial_, * _full_.  Defaults to _none
         :type inherit: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1125,9 +1132,10 @@ class PoolApi:
             )] = None,
         inherit: Annotated[
             Optional[StrictStr],
-            Field(description=
-                  "This parameter is used for getting inheritance_sources."
-                  )] = None,
+            Field(
+                description=
+                "This parameter is used for getting inheritance_sources.  Allowed values: * _none_, * _partial_, * _full_.  Defaults to _none"
+            )] = None,
         _request_timeout: Union[None, Annotated[StrictFloat,
                                                 Field(gt=0)],
                                 Tuple[Annotated[StrictFloat,
@@ -1147,7 +1155,7 @@ class PoolApi:
         :type id: str
         :param fields:   A collection of response resources can be transformed by specifying a set of JSON tags to be returned. For a “flat” resource, the tag name is straightforward. If field selection is allowed on non-flat hierarchical resources, the service should implement a qualified naming scheme such as dot-qualification to reference data down the hierarchy. If a resource does not have the specified tag, the tag does not appear in the output resource.  Specify this parameter as a comma-separated list of JSON tag names.        
         :type fields: str
-        :param inherit: This parameter is used for getting inheritance_sources.
+        :param inherit: This parameter is used for getting inheritance_sources.  Allowed values: * _none_, * _partial_, * _full_.  Defaults to _none
         :type inherit: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1206,9 +1214,10 @@ class PoolApi:
             )] = None,
         inherit: Annotated[
             Optional[StrictStr],
-            Field(description=
-                  "This parameter is used for getting inheritance_sources."
-                  )] = None,
+            Field(
+                description=
+                "This parameter is used for getting inheritance_sources.  Allowed values: * _none_, * _partial_, * _full_.  Defaults to _none"
+            )] = None,
         _request_timeout: Union[None, Annotated[StrictFloat,
                                                 Field(gt=0)],
                                 Tuple[Annotated[StrictFloat,
@@ -1228,7 +1237,7 @@ class PoolApi:
         :type id: str
         :param fields:   A collection of response resources can be transformed by specifying a set of JSON tags to be returned. For a “flat” resource, the tag name is straightforward. If field selection is allowed on non-flat hierarchical resources, the service should implement a qualified naming scheme such as dot-qualification to reference data down the hierarchy. If a resource does not have the specified tag, the tag does not appear in the output resource.  Specify this parameter as a comma-separated list of JSON tag names.        
         :type fields: str
-        :param inherit: This parameter is used for getting inheritance_sources.
+        :param inherit: This parameter is used for getting inheritance_sources.  Allowed values: * _none_, * _partial_, * _full_.  Defaults to _none
         :type inherit: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1337,9 +1346,10 @@ class PoolApi:
         body: Pool,
         inherit: Annotated[
             Optional[StrictStr],
-            Field(description=
-                  "This parameter is used for getting inheritance_sources."
-                  )] = None,
+            Field(
+                description=
+                "This parameter is used for getting inheritance_sources.  Allowed values: * _none_, * _partial_, * _full_.  Defaults to _none"
+            )] = None,
         _request_timeout: Union[None, Annotated[StrictFloat,
                                                 Field(gt=0)],
                                 Tuple[Annotated[StrictFloat,
@@ -1359,7 +1369,7 @@ class PoolApi:
         :type id: str
         :param body: (required)
         :type body: Pool
-        :param inherit: This parameter is used for getting inheritance_sources.
+        :param inherit: This parameter is used for getting inheritance_sources.  Allowed values: * _none_, * _partial_, * _full_.  Defaults to _none
         :type inherit: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1413,9 +1423,10 @@ class PoolApi:
         body: Pool,
         inherit: Annotated[
             Optional[StrictStr],
-            Field(description=
-                  "This parameter is used for getting inheritance_sources."
-                  )] = None,
+            Field(
+                description=
+                "This parameter is used for getting inheritance_sources.  Allowed values: * _none_, * _partial_, * _full_.  Defaults to _none"
+            )] = None,
         _request_timeout: Union[None, Annotated[StrictFloat,
                                                 Field(gt=0)],
                                 Tuple[Annotated[StrictFloat,
@@ -1435,7 +1446,7 @@ class PoolApi:
         :type id: str
         :param body: (required)
         :type body: Pool
-        :param inherit: This parameter is used for getting inheritance_sources.
+        :param inherit: This parameter is used for getting inheritance_sources.  Allowed values: * _none_, * _partial_, * _full_.  Defaults to _none
         :type inherit: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1489,9 +1500,10 @@ class PoolApi:
         body: Pool,
         inherit: Annotated[
             Optional[StrictStr],
-            Field(description=
-                  "This parameter is used for getting inheritance_sources."
-                  )] = None,
+            Field(
+                description=
+                "This parameter is used for getting inheritance_sources.  Allowed values: * _none_, * _partial_, * _full_.  Defaults to _none"
+            )] = None,
         _request_timeout: Union[None, Annotated[StrictFloat,
                                                 Field(gt=0)],
                                 Tuple[Annotated[StrictFloat,
@@ -1511,7 +1523,7 @@ class PoolApi:
         :type id: str
         :param body: (required)
         :type body: Pool
-        :param inherit: This parameter is used for getting inheritance_sources.
+        :param inherit: This parameter is used for getting inheritance_sources.  Allowed values: * _none_, * _partial_, * _full_.  Defaults to _none
         :type inherit: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
