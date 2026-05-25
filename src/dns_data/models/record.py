@@ -203,6 +203,10 @@ class Record(BaseModel):
             "additional_properties",
         ])
 
+        # Exclude name_in_zone when absolute_name_spec and view are provided
+        if self.absolute_name_spec is not None and self.view is not None and self.name_in_zone == '':
+            excluded_fields.add("name_in_zone")
+
         _dict = self.model_dump(
             by_alias=True,
             exclude=excluded_fields,
