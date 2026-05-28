@@ -29,7 +29,8 @@ class PolicyPool(BaseModel):
     name: Optional[StrictStr] = Field(default=None,
                                       description="Display name of __Pool__.")
     pool_id: StrictStr = Field(description="The resource identifier.")
-    weight: StrictInt = Field(
+    weight: Optional[StrictInt] = Field(
+        default=None,
         description=
         "Weight of __Pool__ to be used for load balancing. Unsigned integer, min 1; max 65535."
     )

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | Display name of __Pool__. | [optional] [readonly] 
 **pool_id** | **str** | The resource identifier. | 
-**weight** | **int** | Weight of __Pool__ to be used for load balancing. Unsigned integer, min 1; max 65535. | 
+**weight** | **int** | Weight of __Pool__ to be used for load balancing. Unsigned integer, min 1; max 65535. | [optional] 
 
 ## Example
 
