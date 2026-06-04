@@ -4,6 +4,7 @@ All URIs are relative to *http://csp.infoblox.com/api/ddi/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**configure_record_protection**](RecordApi.md#configure_record_protection) | **POST** /dns/configure_record_protection | Configure record protection for multiple records in a zone.
 [**create**](RecordApi.md#create) | **POST** /dns/record | Create the DNS resource record.
 [**delete**](RecordApi.md#delete) | **DELETE** /dns/record/{id} | Move the DNS resource record to recycle bin.
 [**list**](RecordApi.md#list) | **GET** /dns/record | Retrieve DNS resource records.
@@ -11,6 +12,82 @@ Method | HTTP request | Description
 [**soa_serial_increment**](RecordApi.md#soa_serial_increment) | **POST** /dns/record/{id}/serial_increment | Increment serial number for the SOA record.
 [**update**](RecordApi.md#update) | **PATCH** /dns/record/{id} | Update the DNS resource record.
 
+
+# **configure_record_protection**
+> ConfigureRecordProtectionResponse configure_record_protection(body)
+
+Configure record protection for multiple records in a zone.
+
+Use this method to configure protection levels for DNS records in a zone. This allows setting protection levels (e.g., Global Admin, DDI Admin, None) for multiple records with same rname.
+
+### Example
+
+* Api Key Authentication (ApiKeyAuth):
+```python
+import os
+from pprint import pprint
+
+import dns_data
+
+from universal_ddi_client.api_client import ApiClient
+from universal_ddi_client.configuration import Configuration
+
+# Defining the Portal URL is optional and defaults to "https://csp.infoblox.com"
+# See configuration.py for a list of all supported configuration parameters.
+configuration = Configuration(
+    portal_url = os.getenv('INFOBLOX_PORTAL_URL'),
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+
+# Configure Portal key authorization: ApiKeyAuth
+configuration.portal_key = os.getenv("INFOBLOX_PORTAL_KEY")
+
+# Enter a context with an instance of the API client
+with ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = dns_data.RecordApi(api_client)
+    body = dns_data.ConfigureRecordProtectionRequest() # ConfigureRecordProtectionRequest | 
+
+    try:
+        # Configure record protection for multiple records in a zone.
+        api_response = api_instance.configure_record_protection(body)
+        pprint("The response of RecordApi->configure_record_protection:\n")
+        pprint(api_response)
+    except Exception as e:
+        pprint("Exception when calling RecordApi->configure_record_protection: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**ConfigureRecordProtectionRequest**](ConfigureRecordProtectionRequest.md)|  | 
+
+### Return type
+
+[**ConfigureRecordProtectionResponse**](ConfigureRecordProtectionResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | POST operation response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create**
 > CreateRecordResponse create(body, inherit=inherit)
