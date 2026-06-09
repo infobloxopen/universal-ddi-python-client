@@ -40,6 +40,11 @@ class AuthZone(BaseModel):
   # noqa: E501
     comment: Optional[StrictStr] = Field(
         default=None, description="Optional. Comment for zone configuration.")
+    compartment_id: Optional[StrictStr] = Field(
+        default=None,
+        description=
+        "The access view associated with the object. If no access view is associated with the object, the value defaults to empty."
+    )
     created_at: Optional[datetime] = Field(
         default=None, description="Time when the object has been created.")
     disabled: Optional[StrictBool] = Field(
@@ -148,9 +153,9 @@ class AuthZone(BaseModel):
         default=None, description="Optional. ZoneAuthority.")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = [
-        "comment", "created_at", "disabled", "external_primaries",
-        "external_providers", "external_secondaries", "fqdn",
-        "gss_tsig_enabled", "id", "inheritance_assigned_hosts",
+        "comment", "compartment_id", "created_at", "disabled",
+        "external_primaries", "external_providers", "external_secondaries",
+        "fqdn", "gss_tsig_enabled", "id", "inheritance_assigned_hosts",
         "inheritance_sources", "initial_soa_serial", "internal_secondaries",
         "mapped_subnet", "mapping", "notify", "nsgs", "parent", "primary_type",
         "protocol_fqdn", "query_acl", "tags", "transfer_acl", "update_acl",
@@ -304,6 +309,8 @@ class AuthZone(BaseModel):
         _obj = cls.model_validate({
             "comment":
             obj.get("comment"),
+            "compartment_id":
+            obj.get("compartment_id"),
             "created_at":
             obj.get("created_at"),
             "disabled":

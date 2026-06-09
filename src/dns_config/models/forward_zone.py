@@ -33,6 +33,11 @@ class ForwardZone(BaseModel):
   # noqa: E501
     comment: Optional[StrictStr] = Field(
         default=None, description="Optional. Comment for zone configuration.")
+    compartment_id: Optional[StrictStr] = Field(
+        default=None,
+        description=
+        "The access view associated with the object. If no access view is associated with the object, the value defaults to empty."
+    )
     created_at: Optional[datetime] = Field(
         default=None,
         description="The timestamp when the object has been created.")
@@ -88,10 +93,10 @@ class ForwardZone(BaseModel):
         default=None, description="The list of a forward zone warnings.")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = [
-        "comment", "created_at", "disabled", "external_forwarders",
-        "forward_only", "fqdn", "hosts", "id", "internal_forwarders",
-        "mapped_subnet", "mapping", "nsgs", "parent", "protocol_fqdn", "tags",
-        "updated_at", "view", "warnings"
+        "comment", "compartment_id", "created_at", "disabled",
+        "external_forwarders", "forward_only", "fqdn", "hosts", "id",
+        "internal_forwarders", "mapped_subnet", "mapping", "nsgs", "parent",
+        "protocol_fqdn", "tags", "updated_at", "view", "warnings"
     ]
 
     model_config = ConfigDict(
@@ -181,6 +186,8 @@ class ForwardZone(BaseModel):
         _obj = cls.model_validate({
             "comment":
             obj.get("comment"),
+            "compartment_id":
+            obj.get("compartment_id"),
             "created_at":
             obj.get("created_at"),
             "disabled":
