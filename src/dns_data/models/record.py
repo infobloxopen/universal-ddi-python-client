@@ -42,6 +42,11 @@ class Record(BaseModel):
         description=
         "The description for the DNS resource record. May contain 0 to 1024 characters. Can include UTF-8."
     )
+    compartment_id: Optional[StrictStr] = Field(
+        default=None,
+        description=
+        "The compartment associated with the object. If no compartment is associated with the object, the value defaults to empty."
+    )
     created_at: Optional[datetime] = Field(
         default=None,
         description="The timestamp when the object has been created.")
@@ -78,7 +83,7 @@ class Record(BaseModel):
     ipam_host: Optional[StrictStr] = Field(
         default=None, description="The resource identifier.")
     name_in_zone: Optional[StrictStr] = Field(
-        default='',
+        default=None,
         description=
         "The relative owner name to the zone origin. Must be specified for creating the DNS resource record and is read only for other operations."
     )
@@ -132,12 +137,12 @@ class Record(BaseModel):
                                       description="The resource identifier.")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = [
-        "absolute_name_spec", "absolute_zone_name", "comment", "created_at",
-        "delegation", "disabled", "dns_absolute_name_spec",
-        "dns_absolute_zone_name", "dns_name_in_zone", "dns_rdata", "id",
-        "inheritance_sources", "ipam_host", "name_in_zone", "options",
-        "provider_metadata", "rdata", "source", "subtype", "tags", "ttl",
-        "type", "updated_at", "view", "view_name", "zone"
+        "absolute_name_spec", "absolute_zone_name", "comment",
+        "compartment_id", "created_at", "delegation", "disabled",
+        "dns_absolute_name_spec", "dns_absolute_zone_name", "dns_name_in_zone",
+        "dns_rdata", "id", "inheritance_sources", "ipam_host", "name_in_zone",
+        "options", "provider_metadata", "rdata", "source", "subtype", "tags",
+        "ttl", "type", "updated_at", "view", "view_name", "zone"
     ]
 
     model_config = ConfigDict(
@@ -183,10 +188,12 @@ class Record(BaseModel):
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
             "absolute_zone_name",
+            "compartment_id",
             "created_at",
             "delegation",
             "dns_absolute_name_spec",
@@ -234,6 +241,8 @@ class Record(BaseModel):
             obj.get("absolute_zone_name"),
             "comment":
             obj.get("comment"),
+            "compartment_id":
+            obj.get("compartment_id"),
             "created_at":
             obj.get("created_at"),
             "delegation":
@@ -256,8 +265,7 @@ class Record(BaseModel):
             "ipam_host":
             obj.get("ipam_host"),
             "name_in_zone":
-            obj.get("name_in_zone")
-            if obj.get("name_in_zone") is not None else '',
+            obj.get("name_in_zone"),
             "options":
             obj.get("options"),
             "provider_metadata":
