@@ -78,7 +78,7 @@ class Record(BaseModel):
     ipam_host: Optional[StrictStr] = Field(
         default=None, description="The resource identifier.")
     name_in_zone: Optional[StrictStr] = Field(
-        default='',
+        default=None,
         description=
         "The relative owner name to the zone origin. Must be specified for creating the DNS resource record and is read only for other operations."
     )
@@ -203,10 +203,6 @@ class Record(BaseModel):
             "additional_properties",
         ])
 
-        # Exclude name_in_zone when absolute_name_spec and view are provided
-        if self.absolute_name_spec is not None and self.view is not None and self.name_in_zone == '':
-            excluded_fields.add("name_in_zone")
-
         _dict = self.model_dump(
             by_alias=True,
             exclude=excluded_fields,
@@ -260,8 +256,7 @@ class Record(BaseModel):
             "ipam_host":
             obj.get("ipam_host"),
             "name_in_zone":
-            obj.get("name_in_zone")
-            if obj.get("name_in_zone") is not None else '',
+            obj.get("name_in_zone"),
             "options":
             obj.get("options"),
             "provider_metadata":
