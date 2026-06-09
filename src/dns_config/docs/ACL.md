@@ -7,6 +7,7 @@ Named ACL (Access Control List).
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **comment** | **str** | Optional. Comment for ACL. | [optional] 
+**compartment_id** | **str** | The access view associated with the object. If no access view is associated with the object, the value defaults to empty. | [optional] 
 **id** | **str** | The resource identifier. | [optional] [readonly] 
 **list** | [**List[ACLItem]**](ACLItem.md) | Optional. Ordered list of access control elements.  Elements are evaluated in order to determine access. If evaluation reaches the end of the list then access is denied. | [optional] 
 **name** | **str** | ACL object name. | 

@@ -31,6 +31,11 @@ class ACL(BaseModel):
   # noqa: E501
     comment: Optional[StrictStr] = Field(
         default=None, description="Optional. Comment for ACL.")
+    compartment_id: Optional[StrictStr] = Field(
+        default=None,
+        description=
+        "The access view associated with the object. If no access view is associated with the object, the value defaults to empty."
+    )
     id: Optional[StrictStr] = Field(default=None,
                                     description="The resource identifier.")
     list: Optional[List[ACLItem]] = Field(
@@ -43,7 +48,7 @@ class ACL(BaseModel):
                                            description="Tagging specifics.")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = [
-        "comment", "id", "list", "name", "tags"
+        "comment", "compartment_id", "id", "list", "name", "tags"
     ]
 
     model_config = ConfigDict(
@@ -114,6 +119,8 @@ class ACL(BaseModel):
         _obj = cls.model_validate({
             "comment":
             obj.get("comment"),
+            "compartment_id":
+            obj.get("compartment_id"),
             "id":
             obj.get("id"),
             "list": [ACLItem.from_dict(_item) for _item in obj["list"]]

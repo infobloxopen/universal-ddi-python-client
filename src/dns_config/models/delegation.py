@@ -31,6 +31,11 @@ class Delegation(BaseModel):
   # noqa: E501
     comment: Optional[StrictStr] = Field(
         default=None, description="Optional. Comment for zone delegation.")
+    compartment_id: Optional[StrictStr] = Field(
+        default=None,
+        description=
+        "The access view associated with the object. If no access view is associated with the object, the value defaults to empty."
+    )
     delegation_servers: Optional[List[DelegationServer]] = Field(
         default=None,
         description=
@@ -57,8 +62,8 @@ class Delegation(BaseModel):
                                       description="The resource identifier.")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = [
-        "comment", "delegation_servers", "disabled", "fqdn", "id", "parent",
-        "protocol_fqdn", "tags", "view"
+        "comment", "compartment_id", "delegation_servers", "disabled", "fqdn",
+        "id", "parent", "protocol_fqdn", "tags", "view"
     ]
 
     model_config = ConfigDict(
@@ -131,6 +136,8 @@ class Delegation(BaseModel):
         _obj = cls.model_validate({
             "comment":
             obj.get("comment"),
+            "compartment_id":
+            obj.get("compartment_id"),
             "delegation_servers": [
                 DelegationServer.from_dict(_item)
                 for _item in obj["delegation_servers"]
