@@ -6,6 +6,7 @@ A __PoolHealthCheck__ represents a link between __Pool__ and __HealthCheck__.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**consolidated_health_check** | [**ConsolidatedHealthCheck**](ConsolidatedHealthCheck.md) | Optional. Consolidated health check configuration. When set, the DNS server running the named designator __DNS Service__ performs the health check on behalf of the __Pool__, and the result is shared with other DNS servers linked to the __Pool__ via __LBDN__ association. When unset, each DNS server performs the health check independently and no health status is shared. | [optional] 
 **health_check_id** | **str** | The resource identifier. | 
 **name** | **str** | Display name of __HealthCheck__. | [optional] [readonly] 
 
