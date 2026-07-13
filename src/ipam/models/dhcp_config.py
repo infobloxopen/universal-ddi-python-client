@@ -43,6 +43,8 @@ class DHCPConfig(BaseModel):
         description=
         "Disable to allow leases only for known IPV6 clients, those for which a fixed address is configured."
     )
+    authoritative_dhcp: Optional[StrictBool] = Field(
+        default=False, description="Set DHCP server as authoritative.")
     echo_client_id: Optional[StrictBool] = Field(
         default=False,
         description=
@@ -54,6 +56,12 @@ class DHCPConfig(BaseModel):
         default=None, description="The resource identifier.")
     filters_v6: Optional[List[StrictStr]] = Field(
         default=None, description="The resource identifier.")
+    hold_reclaimed_time: Optional[StrictInt] = Field(
+        default=3600,
+        description="The hold reclaimed time in seconds for IPv4 clients.")
+    hold_reclaimed_time_v6: Optional[StrictInt] = Field(
+        default=3600,
+        description="The hold reclaimed time in seconds for IPv6 clients.")
     ignore_client_uid: Optional[StrictBool] = Field(
         default=False,
         description=
@@ -70,9 +78,10 @@ class DHCPConfig(BaseModel):
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = [
         "abandoned_reclaim_time", "abandoned_reclaim_time_v6", "allow_unknown",
-        "allow_unknown_v6", "echo_client_id", "filters",
-        "filters_large_selection", "filters_v6", "ignore_client_uid",
-        "ignore_list", "lease_time", "lease_time_v6"
+        "allow_unknown_v6", "authoritative_dhcp", "echo_client_id", "filters",
+        "filters_large_selection", "filters_v6", "hold_reclaimed_time",
+        "hold_reclaimed_time_v6", "ignore_client_uid", "ignore_list",
+        "lease_time", "lease_time_v6"
     ]
 
     model_config = ConfigDict(
@@ -151,6 +160,9 @@ class DHCPConfig(BaseModel):
             "allow_unknown_v6":
             obj.get("allow_unknown_v6")
             if obj.get("allow_unknown_v6") is not None else True,
+            "authoritative_dhcp":
+            obj.get("authoritative_dhcp")
+            if obj.get("authoritative_dhcp") is not None else False,
             "echo_client_id":
             obj.get("echo_client_id")
             if obj.get("echo_client_id") is not None else False,
@@ -160,6 +172,12 @@ class DHCPConfig(BaseModel):
             obj.get("filters_large_selection"),
             "filters_v6":
             obj.get("filters_v6"),
+            "hold_reclaimed_time":
+            obj.get("hold_reclaimed_time")
+            if obj.get("hold_reclaimed_time") is not None else 3600,
+            "hold_reclaimed_time_v6":
+            obj.get("hold_reclaimed_time_v6")
+            if obj.get("hold_reclaimed_time_v6") is not None else 3600,
             "ignore_client_uid":
             obj.get("ignore_client_uid")
             if obj.get("ignore_client_uid") is not None else False,
