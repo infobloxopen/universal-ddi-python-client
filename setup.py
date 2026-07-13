@@ -32,6 +32,7 @@ setup(
     author="Infoblox",
     url="https://github.com/infobloxopen/universal-ddi-python-client",
     keywords = ["Infoblox", "Universal", "DDI", "OpenAPI-Generator"],
+    python_requires=PYTHON_REQUIRES,
     install_requires=REQUIRES,
     packages=find_packages('src', exclude=["test", "tests"]),
     package_dir={'': 'src'},
