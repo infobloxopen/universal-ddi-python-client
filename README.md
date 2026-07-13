@@ -26,6 +26,8 @@ The following Infoblox APIs are supported:
 
 ## Installation
 
+Minimum supported Python version: **3.10**.
+
 To install the Universal DDI Python Client, use the following command:
 
 ```bash
