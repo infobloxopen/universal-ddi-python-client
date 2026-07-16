@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "universal-ddi-python-client"
-version = "0.1.1"
+version = "0.2.0"
 description = "Python Client for Infoblox Universal DDI APIs"
 authors = ["Infoblox"]
 license = "Apache-2.0"
