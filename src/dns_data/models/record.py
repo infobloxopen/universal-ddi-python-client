@@ -19,6 +19,7 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from dns_data.models.protection import Protection
 from dns_data.models.record_inheritance import RecordInheritance
 from typing import Optional, Set
 from typing_extensions import Self
@@ -92,6 +93,11 @@ class Record(BaseModel):
         description=
         "The DNS resource record type-specific non-protocol options.  Valid value for _A_ (Address) and _AAAA_ (IPv6 Address) records:  Option     | Description -----------|----------------------------------------- create_ptr | A boolean flag which can be set to _true_ for POST operation to automatically create the corresponding PTR record. check_rmz  | A boolean flag which can be set to _true_ for POST operation to check the existence of reverse zone for creating the corresponding PTR record. Only applicable if the _create_ptr_ option is set to _true_.   Valid value for _PTR_ (Pointer) records:  Option     | Description -----------|---------------------------------------- address    | For GET operation it contains the IPv4 or IPv6 address represented by the PTR record.<br><br>For POST and PATCH operations it can be used to create/update a PTR record based on the IP address it represents. In this case, in addition to the _address_ in the options field, need to specify the _view_ field. |"
     )
+    protection: Optional[Protection] = Field(
+        default=None,
+        description=
+        "Protection configuration containing user group with protected access."
+    )
     provider_metadata: Optional[Dict[str, Any]] = Field(
         default=None, description="external DNS provider metadata.")
     rdata: Dict[str, Any] = Field(
@@ -141,8 +147,9 @@ class Record(BaseModel):
         "compartment_id", "created_at", "delegation", "disabled",
         "dns_absolute_name_spec", "dns_absolute_zone_name", "dns_name_in_zone",
         "dns_rdata", "id", "inheritance_sources", "ipam_host", "name_in_zone",
-        "options", "provider_metadata", "rdata", "source", "subtype", "tags",
-        "ttl", "type", "updated_at", "view", "view_name", "zone"
+        "options", "protection", "provider_metadata", "rdata", "source",
+        "subtype", "tags", "ttl", "type", "updated_at", "view", "view_name",
+        "zone"
     ]
 
     model_config = ConfigDict(
@@ -189,6 +196,7 @@ class Record(BaseModel):
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
@@ -202,6 +210,7 @@ class Record(BaseModel):
             "dns_rdata",
             "id",
             "ipam_host",
+            "protection",
             "provider_metadata",
             "source",
             "subtype",
@@ -218,6 +227,9 @@ class Record(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of inheritance_sources
         if self.inheritance_sources:
             _dict['inheritance_sources'] = self.inheritance_sources.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of protection
+        if self.protection:
+            _dict['protection'] = self.protection.to_dict()
         # puts key-value pairs in additional_properties in the top level
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
@@ -268,6 +280,9 @@ class Record(BaseModel):
             obj.get("name_in_zone"),
             "options":
             obj.get("options"),
+            "protection":
+            Protection.from_dict(obj["protection"])
+            if obj.get("protection") is not None else None,
             "provider_metadata":
             obj.get("provider_metadata"),
             "rdata":

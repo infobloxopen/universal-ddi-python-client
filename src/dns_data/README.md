@@ -50,16 +50,15 @@ configuration.portal_key = os.getenv("INFOBLOX_PORTAL_KEY")
 with dns_data.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = dns_data.RecordApi(api_client)
-    body = dns_data.Record() # Record | 
-    inherit = 'inherit_example' # str | This parameter is used for getting inheritance_sources. (optional)
+    body = dns_data.ConfigureRecordProtectionRequest() # ConfigureRecordProtectionRequest | 
 
     try:
-        # Create the DNS resource record.
-        api_response = api_instance.create(body, inherit=inherit)
-        print("The response of RecordApi->create:\n")
+        # Configure record protection for multiple records in a zone.
+        api_response = api_instance.configure_record_protection(body)
+        print("The response of RecordApi->configure_record_protection:\n")
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling RecordApi->create: %s\n" % e)
+        print("Exception when calling RecordApi->configure_record_protection: %s\n" % e)
 
 ```
 
@@ -69,6 +68,7 @@ All URIs are relative to *http://csp.infoblox.com/api/ddi/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*RecordApi* | [**configure_record_protection**](dns_data/docs/RecordApi.md#configure_record_protection) | **POST** /dns/configure_record_protection | Configure record protection for multiple records in a zone.
 *RecordApi* | [**create**](dns_data/docs/RecordApi.md#create) | **POST** /dns/record | Create the DNS resource record.
 *RecordApi* | [**delete**](dns_data/docs/RecordApi.md#delete) | **DELETE** /dns/record/{id} | Move the DNS resource record to recycle bin.
 *RecordApi* | [**list**](dns_data/docs/RecordApi.md#list) | **GET** /dns/record | Retrieve DNS resource records.
@@ -79,9 +79,13 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [ConfigureRecordProtectionRequest](dns_data/docs/ConfigureRecordProtectionRequest.md)
+ - [ConfigureRecordProtectionResponse](dns_data/docs/ConfigureRecordProtectionResponse.md)
  - [CreateRecordResponse](dns_data/docs/CreateRecordResponse.md)
  - [Inheritance2InheritedUInt32](dns_data/docs/Inheritance2InheritedUInt32.md)
  - [ListRecordResponse](dns_data/docs/ListRecordResponse.md)
+ - [ProtectedRecordItem](dns_data/docs/ProtectedRecordItem.md)
+ - [Protection](dns_data/docs/Protection.md)
  - [ProtobufFieldMask](dns_data/docs/ProtobufFieldMask.md)
  - [ReadRecordResponse](dns_data/docs/ReadRecordResponse.md)
  - [Record](dns_data/docs/Record.md)

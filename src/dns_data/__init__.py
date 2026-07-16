@@ -19,9 +19,13 @@ __version__ = "0.2.0"
 from dns_data.api.record_api import RecordApi
 
 # import models into sdk package
+from dns_data.models.configure_record_protection_request import ConfigureRecordProtectionRequest
+from dns_data.models.configure_record_protection_response import ConfigureRecordProtectionResponse
 from dns_data.models.create_record_response import CreateRecordResponse
 from dns_data.models.inheritance2_inherited_u_int32 import Inheritance2InheritedUInt32
 from dns_data.models.list_record_response import ListRecordResponse
+from dns_data.models.protected_record_item import ProtectedRecordItem
+from dns_data.models.protection import Protection
 from dns_data.models.protobuf_field_mask import ProtobufFieldMask
 from dns_data.models.read_record_response import ReadRecordResponse
 from dns_data.models.record import Record
