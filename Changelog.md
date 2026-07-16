@@ -7,12 +7,12 @@ All notable changes to the Universal DDI Python Client will be documented in thi
 ### New Features
 
 - **[DNS Traffic Control]** Added full support for the DTC (DNS Traffic Control) API ([#30](https://github.com/infobloxopen/universal-ddi-python-client/pull/30), [#38](https://github.com/infobloxopen/universal-ddi-python-client/pull/38)):
-	- CRUD operations for Pools
-	- CRUD operations for Servers
-	- HTTP/ICMP/TCP Health Checks
-	- PDP Health Checks
-	- SIP Health Checks
-	- Topology
+   - CRUD operations for Pools
+   - CRUD operations for Servers
+   - HTTP/ICMP/TCP Health Checks
+   - PDP Health Checks
+   - SIP Health Checks
+   - Topology
 - **[DNS Configuration]** Added support for LBDN object ([#35](https://github.com/infobloxopen/universal-ddi-python-client/pull/35))
 - **[DNS Data]** Added record protection support for DNS records ([#36](https://github.com/infobloxopen/universal-ddi-python-client/pull/36))
 
@@ -24,8 +24,8 @@ All notable changes to the Universal DDI Python Client will be documented in thi
 ### Fixes
 
 - **[DNS Data]** Set `name_in_zone` to default `None` on the `Record` model and added `compartment_id` field to DNS record types ([#37](https://github.com/infobloxopen/universal-ddi-python-client/pull/37))
-	- Fixes issue: Unable to create DNS records: required record name fields are absent despite providing required fields ([#28](https://github.com/infobloxopen/universal-ddi-python-client/issues/28)).
-	- Fixes issue: Record.to_dict() includes name_in_zone: "" default which conflicts with absolute_name_spec ([#29](https://github.com/infobloxopen/universal-ddi-python-client/issues/29)).
+   - Fixes [#28](https://github.com/infobloxopen/universal-ddi-python-client/issues/28): Unable to create DNS records: required record name fields are absent despite providing required fields.
+   - Fixes [#29](https://github.com/infobloxopen/universal-ddi-python-client/issues/29): Record.to_dict() includes name_in_zone: "" default which conflicts with absolute_name_spec.
 - **[Cloud Discovery]** Updated Cloud Discovery schemas to include zone filters and related fields ([#51](https://github.com/infobloxopen/universal-ddi-python-client/pull/51))
 
 ### Maintenance
