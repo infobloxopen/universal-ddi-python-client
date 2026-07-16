@@ -16,6 +16,8 @@ Name | Type | Description | Notes
 **destination_types_enabled** | **List[str]** | Destinations types enabled: Ex.: DNS, IPAM and ACCOUNT. | [optional] 
 **destinations** | [**List[Destination]**](Destination.md) | Destinations. | [optional] 
 **id** | **str** | Auto-generated unique discovery config ID. Format BloxID. | [optional] [readonly] 
+**is_disabled** | **bool** | is_disabled. Enables/Disables provider. Newer version of desired_state. | [optional] 
+**labs_provider** | **bool** | labs_provider. Indicates if a provider is enabled through Infoblox Labs. | [optional] 
 **last_sync** | **datetime** | Last sync timestamp. | [optional] [readonly] 
 **name** | **str** | Name of the discovery config. | 
 **provider_type** | **str** | Provider type. Ex.: Amazon Web Services, Google Cloud Platform, Microsoft Azure. | 

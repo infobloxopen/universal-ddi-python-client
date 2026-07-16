@@ -110,6 +110,7 @@ Class | Method | HTTP request | Description
  - [SubAccountListResponseV2](cloud_discovery/docs/SubAccountListResponseV2.md)
  - [SubAccountProvCredConfig](cloud_discovery/docs/SubAccountProvCredConfig.md)
  - [SubAccountV2](cloud_discovery/docs/SubAccountV2.md)
+ - [ZoneFilter](cloud_discovery/docs/ZoneFilter.md)
 
 
 <a id="documentation-for-authorization"></a>

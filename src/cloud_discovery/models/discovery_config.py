@@ -17,7 +17,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cloud_discovery.models.additional_config import AdditionalConfig
 from cloud_discovery.models.credential_preference import CredentialPreference
@@ -67,6 +67,16 @@ class DiscoveryConfig(BaseModel):
         default=None,
         description="Auto-generated unique discovery config ID. Format BloxID."
     )
+    is_disabled: Optional[StrictBool] = Field(
+        default=None,
+        description=
+        "is_disabled. Enables/Disables provider. Newer version of desired_state."
+    )
+    labs_provider: Optional[StrictBool] = Field(
+        default=None,
+        description=
+        "labs_provider. Indicates if a provider is enabled through Infoblox Labs."
+    )
     last_sync: Optional[datetime] = Field(default=None,
                                           description="Last sync timestamp.")
     name: StrictStr = Field(description="Name of the discovery config.")
@@ -94,9 +104,10 @@ class DiscoveryConfig(BaseModel):
     __properties: ClassVar[List[str]] = [
         "account_preference", "additional_config", "created_at",
         "credential_preference", "deleted_at", "description", "desired_state",
-        "destination_types_enabled", "destinations", "id", "last_sync", "name",
-        "provider_type", "source_configs", "status", "status_message",
-        "sync_interval", "tags", "updated_at"
+        "destination_types_enabled", "destinations", "id", "is_disabled",
+        "labs_provider", "last_sync", "name", "provider_type",
+        "source_configs", "status", "status_message", "sync_interval", "tags",
+        "updated_at"
     ]
 
     model_config = ConfigDict(
@@ -215,6 +226,10 @@ class DiscoveryConfig(BaseModel):
             if obj.get("destinations") is not None else None,
             "id":
             obj.get("id"),
+            "is_disabled":
+            obj.get("is_disabled"),
+            "labs_provider":
+            obj.get("labs_provider"),
             "last_sync":
             obj.get("last_sync"),
             "name":

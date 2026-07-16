@@ -98,12 +98,14 @@ class SourceConfig(BaseModel):
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
             "account_schedule_id",
             "created_at",
             "deleted_at",
+            "id",
             "updated_at",
             "additional_properties",
         ])
