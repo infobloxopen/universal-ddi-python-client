@@ -14,7 +14,7 @@ long_description = (this_directory / "README.md").read_text()
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 NAME = "universal-ddi-python-client"
-VERSION = "0.1.1"
+VERSION = "0.2.0"
 PYTHON_REQUIRES = ">=3.10"
 REQUIRES = [
     "urllib3 >= 2.2.2",
