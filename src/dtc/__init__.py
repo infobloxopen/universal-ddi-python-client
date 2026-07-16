@@ -13,7 +13,7 @@
     Do not edit the class manually.
 """  # noqa: E501
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 # import apis into sdk package
 from dtc.api.health_check_http_api import HealthCheckHttpApi

@@ -1,4 +1,4 @@
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 # import ApiClient
 from universal_ddi_client.api_response import ApiResponse
