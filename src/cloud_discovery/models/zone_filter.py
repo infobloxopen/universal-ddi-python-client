@@ -16,40 +16,22 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from cloud_discovery.models.zone_filter import ZoneFilter
 from typing import Optional, Set
 from typing_extensions import Self
 
 
-class DNSConfig(BaseModel):
+class ZoneFilter(BaseModel):
     """
-    DNSConfig
+    ZoneFilter
     """
 
   # noqa: E501
-    consolidated_zone_data_enabled: Optional[StrictBool] = None
-    resolver_endpoints_sync_enabled: Optional[StrictBool] = Field(
-        default=None,
-        description=
-        "resolver_endpoints_sync_enabled enables discovery of inbound and outbound endpoints from third party providers."
-    )
-    split_view_enabled: Optional[StrictBool] = Field(
-        default=None,
-        description=
-        "split_view_enabled consolidates private zones into a single view, which is separate from the public zone view."
-    )
-    sync_type: Optional[StrictStr] = None
-    view_id: Optional[StrictStr] = None
-    view_name: Optional[StrictStr] = None
-    zone_filters: Optional[List[ZoneFilter]] = None
+    action: Optional[StrictStr] = None
+    wildcards: Optional[List[StrictStr]] = None
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = [
-        "consolidated_zone_data_enabled", "resolver_endpoints_sync_enabled",
-        "split_view_enabled", "sync_type", "view_id", "view_name",
-        "zone_filters"
-    ]
+    __properties: ClassVar[List[str]] = ["action", "wildcards"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -68,7 +50,7 @@ class DNSConfig(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of DNSConfig from a JSON string"""
+        """Create an instance of ZoneFilter from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -91,13 +73,6 @@ class DNSConfig(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in zone_filters (list)
-        _items = []
-        if self.zone_filters:
-            for _item in self.zone_filters:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['zone_filters'] = _items
         # puts key-value pairs in additional_properties in the top level
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
@@ -107,7 +82,7 @@ class DNSConfig(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of DNSConfig from a dict"""
+        """Create an instance of ZoneFilter from a dict"""
         if obj is None:
             return None
 
@@ -115,21 +90,8 @@ class DNSConfig(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "consolidated_zone_data_enabled":
-            obj.get("consolidated_zone_data_enabled"),
-            "resolver_endpoints_sync_enabled":
-            obj.get("resolver_endpoints_sync_enabled"),
-            "split_view_enabled":
-            obj.get("split_view_enabled"),
-            "sync_type":
-            obj.get("sync_type"),
-            "view_id":
-            obj.get("view_id"),
-            "view_name":
-            obj.get("view_name"),
-            "zone_filters":
-            [ZoneFilter.from_dict(_item) for _item in obj["zone_filters"]]
-            if obj.get("zone_filters") is not None else None
+            "action": obj.get("action"),
+            "wildcards": obj.get("wildcards")
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

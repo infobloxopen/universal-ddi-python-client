@@ -37,3 +37,4 @@ from cloud_discovery.models.sub_account_list_request_v2 import SubAccountListReq
 from cloud_discovery.models.sub_account_list_response_v2 import SubAccountListResponseV2
 from cloud_discovery.models.sub_account_prov_cred_config import SubAccountProvCredConfig
 from cloud_discovery.models.sub_account_v2 import SubAccountV2
+from cloud_discovery.models.zone_filter import ZoneFilter

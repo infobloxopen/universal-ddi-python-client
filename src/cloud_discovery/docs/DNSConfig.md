@@ -6,10 +6,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **consolidated_zone_data_enabled** | **bool** |  | [optional] 
+**resolver_endpoints_sync_enabled** | **bool** | resolver_endpoints_sync_enabled enables discovery of inbound and outbound endpoints from third party providers. | [optional] 
 **split_view_enabled** | **bool** | split_view_enabled consolidates private zones into a single view, which is separate from the public zone view. | [optional] 
 **sync_type** | **str** |  | [optional] 
 **view_id** | **str** |  | [optional] 
 **view_name** | **str** |  | [optional] 
+**zone_filters** | [**List[ZoneFilter]**](ZoneFilter.md) |  | [optional] 
 
 ## Example
 
