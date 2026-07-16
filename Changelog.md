@@ -7,9 +7,9 @@ All notable changes to the Universal DDI Python Client will be documented in thi
 ### New Features
 
 - **[DNS Traffic Control]** Added full support for the DTC (DNS Traffic Control) API ([#30](https://github.com/infobloxopen/universal-ddi-python-client/pull/30), [#38](https://github.com/infobloxopen/universal-ddi-python-client/pull/38)):
-   - CRUD operations for DTC Pools
-   - CRUD operations for DTC Servers
-   - CRUD operations for DTC Policy
+   - DTC Server
+   - DTC Pool
+   - DTC Policy
    - DTC HTTP, ICMP, TCP, SNMP, PDP, and SIP Health Checks
    - DTC Topology
 - **[DNS Configuration]** Added support for LBDN object ([#35](https://github.com/infobloxopen/universal-ddi-python-client/pull/35))
