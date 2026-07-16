@@ -7,6 +7,7 @@ DNS zone delegation.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **comment** | **str** | Optional. Comment for zone delegation. | [optional] 
+**compartment_id** | **str** | The access view associated with the object. If no access view is associated with the object, the value defaults to empty. | [optional] 
 **delegation_servers** | [**List[DelegationServer]**](DelegationServer.md) | Required. DNS zone delegation servers. Order is not significant. | [optional] 
 **disabled** | **bool** | Optional. _true_ to disable object. A disabled object is effectively non-existent when generating resource records. | [optional] 
 **fqdn** | **str** | Delegation FQDN. The FQDN supplied at creation will be converted to canonical form.  Read-only after creation. | [optional] 

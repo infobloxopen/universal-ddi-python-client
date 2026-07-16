@@ -7,6 +7,7 @@ Authoritative zone.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **comment** | **str** | Optional. Comment for zone configuration. | [optional] 
+**compartment_id** | **str** | The access view associated with the object. If no access view is associated with the object, the value defaults to empty. | [optional] 
 **created_at** | **datetime** | Time when the object has been created. | [optional] [readonly] 
 **disabled** | **bool** | Optional. _true_ to disable object. A disabled object is effectively non-existent when generating configuration. | [optional] 
 **external_primaries** | [**List[ExternalPrimary]**](ExternalPrimary.md) | Optional. DNS primaries external to BloxOne DDI. Order is not significant. | [optional] 

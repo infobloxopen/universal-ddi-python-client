@@ -84,7 +84,7 @@ class Record(BaseModel):
     ipam_host: Optional[StrictStr] = Field(
         default=None, description="The resource identifier.")
     name_in_zone: Optional[StrictStr] = Field(
-        default='',
+        default=None,
         description=
         "The relative owner name to the zone origin. Must be specified for creating the DNS resource record and is read only for other operations."
     )
@@ -277,8 +277,7 @@ class Record(BaseModel):
             "ipam_host":
             obj.get("ipam_host"),
             "name_in_zone":
-            obj.get("name_in_zone")
-            if obj.get("name_in_zone") is not None else '',
+            obj.get("name_in_zone"),
             "options":
             obj.get("options"),
             "protection":

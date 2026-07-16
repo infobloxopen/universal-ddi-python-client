@@ -10,8 +10,9 @@ Name | Type | Description | Notes
 **destination** | **str** | Destination of __TopologyRule__.  Allowed values: - code - pool  Defaults to _code_. | [optional] 
 **name** | **str** | Display name of __TopologyRule__. | 
 **pool_id** | **str** | The resource identifier. | [optional] 
-**source** | **str** | Type of source.  Allowed values: - subnet - default  Defaults to _default_. | [optional] 
+**source** | **str** | Type of source.  Allowed values: - subnet - tags - default  Defaults to _default_. | [optional] 
 **subnets** | **List[str]** | Optional. List of subnets in CIDR format.  Must be set if _source_ is _subnet_, otherwise must be empty. | [optional] 
+**tags** | [**List[TagRule]**](TagRule.md) | Optional. List of tag rules to match against a source object&#39;s effective tags. Effective tags &#x3D; direct tags plus tags inherited from the IPAM parent chain (IPSpace → Address Block → Subnet); the closer level wins on key conflicts. All rules use AND semantics: an object must satisfy every __TagRule__ to match.  Must be set if _source_ is _tags_, otherwise must be empty. | [optional] 
 
 ## Example
 

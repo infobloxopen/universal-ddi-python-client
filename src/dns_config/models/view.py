@@ -45,6 +45,11 @@ class View(BaseModel):
     )
     comment: Optional[StrictStr] = Field(
         default=None, description="Optional. Comment for view.")
+    compartment_id: Optional[StrictStr] = Field(
+        default=None,
+        description=
+        "The access view associated with the object. If no access view is associated with the object, the value defaults to empty."
+    )
     created_at: Optional[datetime] = Field(
         default=None,
         description="The timestamp when the object has been created.")
@@ -251,8 +256,8 @@ class View(BaseModel):
         default=None, description="Optional. ZoneAuthority.")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = [
-        "add_edns_option_in_outgoing_query", "comment", "created_at",
-        "custom_root_ns", "custom_root_ns_enabled", "disabled",
+        "add_edns_option_in_outgoing_query", "comment", "compartment_id",
+        "created_at", "custom_root_ns", "custom_root_ns_enabled", "disabled",
         "dnssec_enable_validation", "dnssec_enabled", "dnssec_root_keys",
         "dnssec_trust_anchors", "dnssec_validate_expiry", "dtc_config",
         "ecs_enabled", "ecs_forwarding", "ecs_prefix_v4", "ecs_prefix_v6",
@@ -437,6 +442,8 @@ class View(BaseModel):
             obj.get("add_edns_option_in_outgoing_query"),
             "comment":
             obj.get("comment"),
+            "compartment_id":
+            obj.get("compartment_id"),
             "created_at":
             obj.get("created_at"),
             "custom_root_ns":

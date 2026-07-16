@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **add_edns_option_in_outgoing_query** | **bool** | _add_edns_option_in_outgoing_query_ adds client IP, MAC address and view name into outgoing recursive query. Defaults to _false_. | [optional] 
 **comment** | **str** | Optional. Comment for view. | [optional] 
+**compartment_id** | **str** | The access view associated with the object. If no access view is associated with the object, the value defaults to empty. | [optional] 
 **created_at** | **datetime** | The timestamp when the object has been created. | [optional] [readonly] 
 **custom_root_ns** | [**List[RootNS]**](RootNS.md) | Optional. List of custom root nameservers. The order does not matter.  Error if empty while _custom_root_ns_enabled_ is _true_. Error if there are duplicate items in the list.  Defaults to empty. | [optional] 
 **custom_root_ns_enabled** | **bool** | Optional. _true_ to use custom root nameservers instead of the default ones.  The _custom_root_ns_ is validated when enabled.  Defaults to _false_. | [optional] 

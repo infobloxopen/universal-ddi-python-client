@@ -50,6 +50,11 @@ class InheritedDHCPConfig(BaseModel):
         description=
         "The inheritance configuration for _allow_unknown_v6_ field from _DHCPConfig_ object."
     )
+    authoritative_dhcp: Optional[InheritanceInheritedBool] = Field(
+        default=None,
+        description=
+        "The inheritance configuration for _authoritative_dhcp_ field from _DHCPConfig_ object."
+    )
     echo_client_id: Optional[InheritanceInheritedBool] = Field(
         default=None,
         description=
@@ -64,6 +69,16 @@ class InheritedDHCPConfig(BaseModel):
         default=None,
         description=
         "The inheritance configuration for _filters_v6_ field from _DHCPConfig_ object."
+    )
+    hold_reclaimed_time: Optional[InheritanceInheritedUInt32] = Field(
+        default=None,
+        description=
+        "The inheritance configuration for _hold_reclaimed_time_ field from _DHCPConfig_ object."
+    )
+    hold_reclaimed_time_v6: Optional[InheritanceInheritedUInt32] = Field(
+        default=None,
+        description=
+        "The inheritance configuration for _hold_reclaimed_time_v6_ field from _DHCPConfig_ object."
     )
     ignore_client_uid: Optional[InheritanceInheritedBool] = Field(
         default=None,
@@ -88,7 +103,8 @@ class InheritedDHCPConfig(BaseModel):
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = [
         "abandoned_reclaim_time", "abandoned_reclaim_time_v6", "allow_unknown",
-        "allow_unknown_v6", "echo_client_id", "filters", "filters_v6",
+        "allow_unknown_v6", "authoritative_dhcp", "echo_client_id", "filters",
+        "filters_v6", "hold_reclaimed_time", "hold_reclaimed_time_v6",
         "ignore_client_uid", "ignore_list", "lease_time", "lease_time_v6"
     ]
 
@@ -148,6 +164,9 @@ class InheritedDHCPConfig(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of allow_unknown_v6
         if self.allow_unknown_v6:
             _dict['allow_unknown_v6'] = self.allow_unknown_v6.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of authoritative_dhcp
+        if self.authoritative_dhcp:
+            _dict['authoritative_dhcp'] = self.authoritative_dhcp.to_dict()
         # override the default output from pydantic by calling `to_dict()` of echo_client_id
         if self.echo_client_id:
             _dict['echo_client_id'] = self.echo_client_id.to_dict()
@@ -157,6 +176,14 @@ class InheritedDHCPConfig(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of filters_v6
         if self.filters_v6:
             _dict['filters_v6'] = self.filters_v6.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of hold_reclaimed_time
+        if self.hold_reclaimed_time:
+            _dict['hold_reclaimed_time'] = self.hold_reclaimed_time.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of hold_reclaimed_time_v6
+        if self.hold_reclaimed_time_v6:
+            _dict[
+                'hold_reclaimed_time_v6'] = self.hold_reclaimed_time_v6.to_dict(
+                )
         # override the default output from pydantic by calling `to_dict()` of ignore_client_uid
         if self.ignore_client_uid:
             _dict['ignore_client_uid'] = self.ignore_client_uid.to_dict()
@@ -199,6 +226,9 @@ class InheritedDHCPConfig(BaseModel):
             "allow_unknown_v6":
             InheritanceInheritedBool.from_dict(obj["allow_unknown_v6"])
             if obj.get("allow_unknown_v6") is not None else None,
+            "authoritative_dhcp":
+            InheritanceInheritedBool.from_dict(obj["authoritative_dhcp"])
+            if obj.get("authoritative_dhcp") is not None else None,
             "echo_client_id":
             InheritanceInheritedBool.from_dict(obj["echo_client_id"])
             if obj.get("echo_client_id") is not None else None,
@@ -208,6 +238,12 @@ class InheritedDHCPConfig(BaseModel):
             "filters_v6":
             InheritedDHCPConfigFilterList.from_dict(obj["filters_v6"])
             if obj.get("filters_v6") is not None else None,
+            "hold_reclaimed_time":
+            InheritanceInheritedUInt32.from_dict(obj["hold_reclaimed_time"])
+            if obj.get("hold_reclaimed_time") is not None else None,
+            "hold_reclaimed_time_v6":
+            InheritanceInheritedUInt32.from_dict(obj["hold_reclaimed_time_v6"])
+            if obj.get("hold_reclaimed_time_v6") is not None else None,
             "ignore_client_uid":
             InheritanceInheritedBool.from_dict(obj["ignore_client_uid"])
             if obj.get("ignore_client_uid") is not None else None,
