@@ -57,10 +57,10 @@ class DHCPConfig(BaseModel):
     filters_v6: Optional[List[StrictStr]] = Field(
         default=None, description="The resource identifier.")
     hold_reclaimed_time: Optional[StrictInt] = Field(
-        default=3600,
+        default=None,
         description="The hold reclaimed time in seconds for IPv4 clients.")
     hold_reclaimed_time_v6: Optional[StrictInt] = Field(
-        default=3600,
+        default=None,
         description="The hold reclaimed time in seconds for IPv6 clients.")
     ignore_client_uid: Optional[StrictBool] = Field(
         default=False,
@@ -113,9 +113,13 @@ class DHCPConfig(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
+            "hold_reclaimed_time",
+            "hold_reclaimed_time_v6",
             "additional_properties",
         ])
 
@@ -173,11 +177,9 @@ class DHCPConfig(BaseModel):
             "filters_v6":
             obj.get("filters_v6"),
             "hold_reclaimed_time":
-            obj.get("hold_reclaimed_time")
-            if obj.get("hold_reclaimed_time") is not None else 3600,
+            obj.get("hold_reclaimed_time"),
             "hold_reclaimed_time_v6":
-            obj.get("hold_reclaimed_time_v6")
-            if obj.get("hold_reclaimed_time_v6") is not None else 3600,
+            obj.get("hold_reclaimed_time_v6"),
             "ignore_client_uid":
             obj.get("ignore_client_uid")
             if obj.get("ignore_client_uid") is not None else False,
