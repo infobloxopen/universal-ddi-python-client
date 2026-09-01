@@ -20,7 +20,6 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, Strict
 from typing import Any, ClassVar, Dict, List, Optional
 from dtc.models.metadata import Metadata
 from dtc.models.policy_pool import PolicyPool
-from dtc.models.policy_topology import PolicyTopology
 from dtc.models.topology_rule import TopologyRule
 from dtc.models.ttl_inheritance import TTLInheritance
 from typing import Optional, Set
@@ -60,16 +59,11 @@ class Policy(BaseModel):
     rules: Optional[List[TopologyRule]] = Field(
         default=None,
         description=
-        "Optional. List of inline __TopologyRule__ objects defining the resolving strategy for __Policy__.  Mutually exclusive with _topology_: if _topology_ is set, _rules_ must be empty. Defaults to a list of single, default __TopologyRule__."
+        "Optional. List of inline __TopologyRule__ objects defining the resolving strategy for __Policy__.  Defaults to a list of single, default __TopologyRule__."
     )
     tags: Optional[Dict[str, Any]] = Field(
         default=None,
         description="Optional. The tags for __Policy__ in JSON format.")
-    topology: Optional[PolicyTopology] = Field(
-        default=None,
-        description=
-        "Optional. __Topology__ binding for this __Policy__.  When set, resolution uses the referenced __Topology__'s __TopologyRulePreset__ entries together with the destinations configured in __PolicyTopology.RuleBinding__.  Mutually exclusive with _rules_: if _rules_ is non-empty, _topology_ must be unset."
-    )
     ttl: Optional[StrictInt] = Field(
         default=None,
         description=
@@ -78,7 +72,7 @@ class Policy(BaseModel):
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = [
         "comment", "disabled", "id", "inheritance_sources", "metadata",
-        "method", "name", "pools", "rules", "tags", "topology", "ttl"
+        "method", "name", "pools", "rules", "tags", "ttl"
     ]
 
     model_config = ConfigDict(
@@ -143,9 +137,6 @@ class Policy(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['rules'] = _items
-        # override the default output from pydantic by calling `to_dict()` of topology
-        if self.topology:
-            _dict['topology'] = self.topology.to_dict()
         # puts key-value pairs in additional_properties in the top level
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
@@ -185,9 +176,6 @@ class Policy(BaseModel):
             if obj.get("rules") is not None else None,
             "tags":
             obj.get("tags"),
-            "topology":
-            PolicyTopology.from_dict(obj["topology"])
-            if obj.get("topology") is not None else None,
             "ttl":
             obj.get("ttl")
         })

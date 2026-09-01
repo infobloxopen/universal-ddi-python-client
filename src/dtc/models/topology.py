@@ -19,14 +19,14 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from dtc.models.metadata import Metadata
-from dtc.models.topology_rule_preset import TopologyRulePreset
+from dtc.models.topology_source import TopologySource
 from typing import Optional, Set
 from typing_extensions import Self
 
 
 class Topology(BaseModel):
     """
-    A __Topology__ (_dtc/topology_) is a reusable, named set of __TopologyRulePreset__ objects that provide deterministic infrastructure classification for DTC __Policy__ evaluation using infrastructure source object tags.
+    A __Topology__ (_dtc/topology_) is a reusable, named set of __TopologySource__ objects.
     """ # noqa: E501
     comment: Optional[StrictStr] = Field(
         default=None, description="Optional. Comment for __Topology__.")
@@ -40,20 +40,18 @@ class Topology(BaseModel):
     metadata: Optional[Metadata] = Field(
         default=None,
         description=
-        "Output only. __Topology__ metadata. Defaults to empty object and should be explicitly requested using field selection."
+        "Output only. __Topology__ metadata.  Defaults to empty object and should be explicitly requested using field selection."
     )
     name: StrictStr = Field(description="Display name of __Topology__.")
-    rules: Optional[List[TopologyRulePreset]] = Field(
-        default=None,
+    sources: List[TopologySource] = Field(
         description=
-        "List of __TopologyRulePreset__ objects defining the resolving strategy for __Policy__. Preset names must be unique within __Topology__.  Defaults to a list with a single, default __TopologyRulePreset__."
-    )
+        "Required. List of __TopologySource__ objects with unique names.")
     tags: Optional[Dict[str, Any]] = Field(
         default=None,
         description="Optional. The tags for __Topology__ in JSON format.")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = [
-        "comment", "disabled", "id", "metadata", "name", "rules", "tags"
+        "comment", "disabled", "id", "metadata", "name", "sources", "tags"
     ]
 
     model_config = ConfigDict(
@@ -101,13 +99,13 @@ class Topology(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of metadata
         if self.metadata:
             _dict['metadata'] = self.metadata.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of each item in rules (list)
+        # override the default output from pydantic by calling `to_dict()` of each item in sources (list)
         _items = []
-        if self.rules:
-            for _item in self.rules:
+        if self.sources:
+            for _item in self.sources:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['rules'] = _items
+            _dict['sources'] = _items
         # puts key-value pairs in additional_properties in the top level
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
@@ -136,9 +134,9 @@ class Topology(BaseModel):
             if obj.get("metadata") is not None else None,
             "name":
             obj.get("name"),
-            "rules":
-            [TopologyRulePreset.from_dict(_item) for _item in obj["rules"]]
-            if obj.get("rules") is not None else None,
+            "sources":
+            [TopologySource.from_dict(_item) for _item in obj["sources"]]
+            if obj.get("sources") is not None else None,
             "tags":
             obj.get("tags")
         })

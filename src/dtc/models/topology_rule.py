@@ -43,21 +43,24 @@ class TopologyRule(BaseModel):
     source: Optional[StrictStr] = Field(
         default=None,
         description=
-        "Type of source.  Allowed values: - subnet - tags - default  Defaults to _default_."
+        "Type of source.  Allowed values: - subnet - tag_rule - topology - default  Defaults to _default_."
     )
     subnets: Optional[List[StrictStr]] = Field(
         default=None,
         description=
         "Optional. List of subnets in CIDR format.  Must be set if _source_ is _subnet_, otherwise must be empty."
     )
-    tags: Optional[List[TagRule]] = Field(
+    tag_rules: Optional[List[TagRule]] = Field(
         default=None,
         description=
-        "Optional. List of tag rules to match against a source object's effective tags. Effective tags = direct tags plus tags inherited from the IPAM parent chain (IPSpace → Address Block → Subnet); the closer level wins on key conflicts. All rules use AND semantics: an object must satisfy every __TagRule__ to match.  Must be set if _source_ is _tags_, otherwise must be empty."
+        "Optional. List of tag rules to match against infrastructure source objects effective tags.  Must be set if _source_ is set to _tag_rule_, otherwise must be empty."
     )
+    topology_id: Optional[StrictStr] = Field(
+        default=None, description="The resource identifier.")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = [
-        "code", "destination", "name", "pool_id", "source", "subnets", "tags"
+        "code", "destination", "name", "pool_id", "source", "subnets",
+        "tag_rules", "topology_id"
     ]
 
     model_config = ConfigDict(
@@ -100,13 +103,13 @@ class TopologyRule(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in tags (list)
+        # override the default output from pydantic by calling `to_dict()` of each item in tag_rules (list)
         _items = []
-        if self.tags:
-            for _item in self.tags:
+        if self.tag_rules:
+            for _item in self.tag_rules:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['tags'] = _items
+            _dict['tag_rules'] = _items
         # puts key-value pairs in additional_properties in the top level
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
@@ -136,9 +139,11 @@ class TopologyRule(BaseModel):
             obj.get("source"),
             "subnets":
             obj.get("subnets"),
-            "tags":
-            [TagRule.from_dict(_item)
-             for _item in obj["tags"]] if obj.get("tags") is not None else None
+            "tag_rules":
+            [TagRule.from_dict(_item) for _item in obj["tag_rules"]]
+            if obj.get("tag_rules") is not None else None,
+            "topology_id":
+            obj.get("topology_id")
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

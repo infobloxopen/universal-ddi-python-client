@@ -46,8 +46,6 @@ from dtc.models.metadata_resource_meta import MetadataResourceMeta
 from dtc.models.pdp_health_check import PDPHealthCheck
 from dtc.models.policy import Policy
 from dtc.models.policy_pool import PolicyPool
-from dtc.models.policy_topology import PolicyTopology
-from dtc.models.policy_topology_rule_binding import PolicyTopologyRuleBinding
 from dtc.models.pool import Pool
 from dtc.models.pool_health_check import PoolHealthCheck
 from dtc.models.pool_server import PoolServer
@@ -73,7 +71,7 @@ from dtc.models.ttl_inheritance import TTLInheritance
 from dtc.models.tag_rule import TagRule
 from dtc.models.topology import Topology
 from dtc.models.topology_rule import TopologyRule
-from dtc.models.topology_rule_preset import TopologyRulePreset
+from dtc.models.topology_source import TopologySource
 from dtc.models.update_http_health_check_response import UpdateHTTPHealthCheckResponse
 from dtc.models.update_icmp_health_check_response import UpdateICMPHealthCheckResponse
 from dtc.models.update_pdp_health_check_response import UpdatePDPHealthCheckResponse

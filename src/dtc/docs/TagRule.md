@@ -1,13 +1,13 @@
 # TagRule
 
-A __TagRule__ is a single match criterion used by a tags-based topology rule source. Each rule carries a _key_, _value_, and an optional match _op_.
+A __TagRule__ is a single match criterion used to select infrastructure source objects.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **key** | **str** | Required. Tag key to match against a source object&#39;s effective tags. | 
-**op** | **str** | Optional. Match operator.  Supported values: - EQUALS: matches when the key exists and its value equals the configured value. - NOT_EQUALS: matches when the key exists and all values for that key differ   from the configured value. A missing key does not satisfy either operator.  Defaults to _EQUALS_. | [optional] 
+**op** | **str** | Optional. Match operator.  Supported values: - EQUALS: matches when the key exists and its value equals the configured value. - NOT_EQUALS: matches when the key exists and all values for that key differ   from the configured value.  A missing key does not satisfy either operator.  Defaults to _EQUALS_. | [optional] 
 **value** | **str** | Required. Tag value to match against a source object&#39;s effective tags. | 
 
 ## Example

@@ -24,7 +24,7 @@ from typing_extensions import Self
 
 class TagRule(BaseModel):
     """
-    A __TagRule__ is a single match criterion used by a tags-based topology rule source. Each rule carries a _key_, _value_, and an optional match _op_.
+    A __TagRule__ is a single match criterion used to select infrastructure source objects.
     """ # noqa: E501
     key: StrictStr = Field(
         description=
@@ -32,7 +32,7 @@ class TagRule(BaseModel):
     op: Optional[StrictStr] = Field(
         default=None,
         description=
-        "Optional. Match operator.  Supported values: - EQUALS: matches when the key exists and its value equals the configured value. - NOT_EQUALS: matches when the key exists and all values for that key differ   from the configured value. A missing key does not satisfy either operator.  Defaults to _EQUALS_."
+        "Optional. Match operator.  Supported values: - EQUALS: matches when the key exists and its value equals the configured value. - NOT_EQUALS: matches when the key exists and all values for that key differ   from the configured value.  A missing key does not satisfy either operator.  Defaults to _EQUALS_."
     )
     value: StrictStr = Field(
         description=
